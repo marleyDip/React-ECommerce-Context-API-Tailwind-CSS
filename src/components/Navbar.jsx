@@ -10,7 +10,6 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
-import { useState } from "react";
 import { CgClose } from "react-icons/cg";
 
 const Navbar = ({ location, getLocation, openDropDown, setOpenDropDown }) => {
