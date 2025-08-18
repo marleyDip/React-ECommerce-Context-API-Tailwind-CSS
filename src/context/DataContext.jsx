@@ -15,6 +15,9 @@ export const DataProvider = ({ children }) => {
         "https://fakestoreapi.in/api/products?limit=150"
       );
       console.log(res);
+
+      const productsData = res.data.products;
+      setData(productsData);
     } catch (error) {
       console.log(error);
     }
