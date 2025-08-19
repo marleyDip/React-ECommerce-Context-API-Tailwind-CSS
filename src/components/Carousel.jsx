@@ -11,7 +11,7 @@ import Category from "./Category";
 const Carousel = () => {
   const { data, fetchAllProducts } = GetData();
 
-  console.log(data);
+  //console.log(data);
 
   useEffect(() => {
     fetchAllProducts();
