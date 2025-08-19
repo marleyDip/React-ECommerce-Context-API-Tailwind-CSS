@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { GetData } from "../context/DataContext";
 
 const Category = () => {
-  const { data, fetchAllProducts } = GetData();
+  const { data, fetchAllProducts, categoryOnlyData } = GetData();
 
+  /* 
   const getUniqueCategory = (data, property) => {
     let newVal = data?.map((element) => {
       return element[property];
@@ -12,7 +13,8 @@ const Category = () => {
     return newVal;
   };
 
-  const categoryOnlyData = getUniqueCategory(data, "category");
+  const categoryOnlyData = getUniqueCategory(data, "category"); */
+
   //console.log(categoryOnlyData);
 
   useEffect(() => {
