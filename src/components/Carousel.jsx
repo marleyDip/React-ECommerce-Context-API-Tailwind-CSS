@@ -60,7 +60,6 @@ const Carousel = () => {
             padding: "2px",
             right: "50px",
           }}
-          onMouseOver="this.style.backgroundColor=#555"
         />
       </div>
     );
@@ -74,6 +73,7 @@ const Carousel = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    pushOnHover: false,
     nextArrow: <SampleNextArrow to="next" />,
     prevArrow: <SamplePrevArrow to="prev" />,
   };
