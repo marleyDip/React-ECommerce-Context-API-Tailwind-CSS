@@ -6,6 +6,7 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 import { useEffect } from "react";
 import { GetData } from "../context/DataContext";
+import Category from "./Category";
 
 const Carousel = () => {
   const { data, fetchAllProducts } = GetData();
@@ -118,6 +119,8 @@ const Carousel = () => {
           );
         })}
       </Slider>
+
+      <Category />
     </div>
   );
 };
