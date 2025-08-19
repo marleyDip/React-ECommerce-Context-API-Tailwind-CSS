@@ -1,4 +1,5 @@
 import Carousel from "../components/Carousel";
+import Features from "../components/Features";
 import MidBanner from "../components/MidBanner";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <>
       <Carousel />
       <MidBanner />
+      <Features />
     </>
   );
 };
