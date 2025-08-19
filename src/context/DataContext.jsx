@@ -21,12 +21,25 @@ export const DataProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-
-    /* const value = {data, setData, fetchAllProducts} */
   };
 
+  // fetching all category from API
+  const getUniqueCategory = (data, property) => {
+    let category = data?.map((element) => {
+      return element[property];
+    });
+    category = [...new Set(category)];
+    return category;
+  };
+
+  const categoryOnlyData = getUniqueCategory(data, "category");
+
+  /* const value = {data, setData, fetchAllProducts, categoryOnlyData} */
+
   return (
-    <DataContext.Provider value={{ data, setData, fetchAllProducts }}>
+    <DataContext.Provider
+      value={{ data, setData, fetchAllProducts, categoryOnlyData }}
+    >
       {children}
     </DataContext.Provider>
   );
