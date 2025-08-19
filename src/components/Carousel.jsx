@@ -98,7 +98,7 @@ const Carousel = () => {
                     {item.title}
                   </h1>
 
-                  <p className="md:w-[500px] line-clamp-3 text-gray-400 pr-7">
+                  <p className="md:w-[500px] line-clamp-3 text-gray-400 pr-7 text-justify">
                     {item.description}
                   </p>
 
