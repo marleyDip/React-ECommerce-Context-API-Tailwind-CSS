@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [location, setLocation] = useState();
@@ -47,6 +48,7 @@ const App = () => {
         openDropDown={openDropDown}
         setOpenDropDown={setOpenDropDown}
       />
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
 
@@ -58,6 +60,8 @@ const App = () => {
 
         <Route path="/cart" element={<Cart />}></Route>
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   );
 };
