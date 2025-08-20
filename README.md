@@ -2,7 +2,7 @@
 
 ## A fully functional e-commerce application built with React.js, Tailwind CSS, and Context API for smooth state management.
 
-## It features secure user authentication with Clerk, a modern UI, and essential e-commerce functionality like cart management, product pages, and local storage support. 🚀
+## It features secure user authentication with Clerk, a modern UI, and essential e-commerce functionality, including cart management, product pages, local storage support, and Protected Route. 🚀
 
 ### 🔑 Key Features
 
