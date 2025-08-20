@@ -1,10 +1,10 @@
 import { IoCartOutline } from "react-icons/io5";
 
 const ProductCard = ({ product }) => {
-  console.log(product);
+  //console.log(product);
 
   return (
-    <div className="group bg-gray-100 rounded-2xl shadow-md hover:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ease-out">
+    <div className="group h-max bg-gray-100 rounded-2xl shadow-md hover:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ease-in-out">
       {/* image & category */}
       <div className="relative overflow-hidden">
         <img
@@ -72,8 +72,6 @@ const ProductCard = ({ product }) => {
           <IoCartOutline className="w-6 h-6" />
           <span className="font-medium">Add to Cart</span>
         </button>
-
-        <div className="flex items-center justify-between"></div>
       </div>
       {/* info */}
     </div>
