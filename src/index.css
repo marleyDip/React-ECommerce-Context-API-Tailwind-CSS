@@ -7,8 +7,17 @@
     height: 3rem;
 }
 
+/* carousel arrow */
 .arrows {
     height: 40px;
     width: 40px;
     margin: 1px;
+}
+
+/* input colors */
+input {
+  background-color: #ffffff; /* white background */
+  accent-color: red;         /* affects checkboxes tick, radio buttons dot, range sliders, progress bars */
+  border: 1px solid #ccc;    /* light gray border */
+  color: #333;               /* dark gray text */
 }
