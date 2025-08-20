@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+//import { useEffect } from "react";
+
 import { GetData } from "../context/DataContext";
 
 const Category = () => {
-  const { data, fetchAllProducts, categoryOnlyData } = GetData();
+  const { categoryOnlyData } = GetData();
 
+  //const { data, fetchAllProducts, categoryOnlyData } = GetData();
   /* 
   const getUniqueCategory = (data, property) => {
     let newVal = data?.map((element) => {
@@ -17,9 +19,9 @@ const Category = () => {
 
   //console.log(categoryOnlyData);
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetchAllProducts();
-  }, []);
+  }, []); */
 
   return (
     <div className="bg-[#101829]">
