@@ -1,3 +1,4 @@
+import { MailCheck, MapPinned, PhoneCall } from "lucide-react";
 import {
   FaFacebook,
   FaInstagram,
@@ -18,29 +19,37 @@ const Footer = () => {
             </h1>
           </Link>
 
-          <p className="mt-2 font-medium text-sm">
+          <p className="mt-1 font-medium text-base">
             Powering your world with the best in Electronics.
           </p>
 
-          <p className="mt-2 font-medium text-sm cursor-pointer hover:text-rose-400">
-            <a href="https://maps.app.goo.gl/TZQrDRBGdmNeQPEN7" target="_blank">
+          <p className="mt-2 font-medium text-sm flex items-center">
+            <MapPinned size={16} />
+            <a
+              href="https://maps.app.goo.gl/TZQrDRBGdmNeQPEN7"
+              target="_blank"
+              className="ml-2 hover:text-rose-400 hover:translate-x-1 duration-200 ease-in"
+            >
               Someshpur, Belkuchi, Sirajganj, Rajshahi <br /> Bangladesh
             </a>
           </p>
 
-          <p className="text-sm font-medium">
-            Email:
+          <p className="mt-0.5 text-sm font-medium flex items-center">
+            <MailCheck size={16} />
             <a
               href="mailto:dip.akand9899@gmail.com"
-              className="ml-2 hover:text-amber-400"
+              className="ml-2 hover:text-amber-400 hover:translate-x-1 duration-200 ease-in"
             >
               dip.akand9899@gmail.com
             </a>
           </p>
 
-          <p className="text-sm font-medium">
-            Phone:
-            <a href="tel:+8801689190142" className="ml-2 hover:text-amber-400">
+          <p className="mt-0.5 text-sm font-medium flex items-center">
+            <PhoneCall size={16} />
+            <a
+              href="tel:+8801689190142"
+              className="ml-2 hover:text-amber-400 hover:translate-x-1 duration-200 ease-in"
+            >
               (+880) 1689 190142
             </a>
           </p>
@@ -102,7 +111,7 @@ const Footer = () => {
         <a
           href="https://marleydip.netlify.app/"
           target="_blank"
-          className="text-emerald-400 hover:text-rose-400 cursor-pointer"
+          className="text-emerald-400 hover:text-rose-400"
         >
           Md Sofian Hasan
         </a>
