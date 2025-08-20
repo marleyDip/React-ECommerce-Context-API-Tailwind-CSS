@@ -44,23 +44,28 @@ const ProductCard = ({ product }) => {
         </p>
 
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-green-700">
-            BDT {product.price - product.discount}
-          </h3>
+          {/* <div className="flex-nowrap  space-x-1.5"> */}
+          <div className="flex items-center space-x-1.5">
+            <h3 className="text-sm font-semibold text-green-700">
+              BDT {product.price - product.discount}
+            </h3>
 
-          <h3 className="text-lg font-medium text-gray-500 line-through">
-            BDT {product.price}
-          </h3>
+            <h3 className="text-sm font-medium text-gray-500 line-through">
+              BDT {product.price}
+            </h3>
+          </div>
 
-          <p className="ml-2 px-2 py-1 text-sm bg-green-100 text-green-700 font-medium rounded-full shadow-md">
-            Save{" "}
-            {Math.round(
-              ((product.price - (product.price - product.discount)) /
-                product.price) *
-                100
-            )}
-            %
-          </p>
+          <div>
+            <p className="ml-2 px-2 py-1 text-xs bg-green-100 text-green-700 font-medium rounded-full shadow-md">
+              Save{" "}
+              {Math.round(
+                ((product.price - (product.price - product.discount)) /
+                  product.price) *
+                  100
+              )}
+              %
+            </p>
+          </div>
         </div>
 
         <button className="bg-gradient-to-tr from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600 px-4 py-2 text-lg text-white w-full font-semibold flex items-center justify-center space-x-2 rounded-md shadow-md hover:rounded-lg hover:shadow-lg transform hover:scale-105 hover:active:scale-95 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer ease-in-out">
