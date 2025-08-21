@@ -3,7 +3,7 @@ import loading from "../assets/Loading4.webm";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import BreadCrums from "../components/Breadcrums";
+import BreadCrums from "../components/BreadCrums";
 import { IoCartOutline } from "react-icons/io5";
 
 const SingleProduct = () => {
