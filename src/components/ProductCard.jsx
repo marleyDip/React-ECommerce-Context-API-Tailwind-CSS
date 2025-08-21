@@ -1,10 +1,15 @@
 import { IoCartOutline } from "react-icons/io5";
+
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
   //console.log(product);
 
   const navigate = useNavigate();
+
+  const { addToCart } = useCart();
+  //console.log(cartItem);
 
   return (
     <div className="group h-max bg-gray-100 rounded-2xl shadow-md hover:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ease-in-out">
@@ -74,8 +79,12 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
 
-        <button className="bg-gradient-to-tr from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600 px-4 py-2 text-lg text-white w-full font-semibold flex items-center justify-center space-x-2 rounded-md shadow-md hover:rounded-lg hover:shadow-lg transform hover:scale-105 hover:active:scale-95 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer ease-in-out">
+        <button
+          className="bg-gradient-to-tr from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600 px-4 py-2 text-lg text-white w-full font-semibold flex items-center justify-center space-x-2 rounded-md shadow-md hover:rounded-lg hover:shadow-lg transform hover:scale-105 hover:active:scale-95 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer ease-in-out"
+          onClick={() => addToCart(product)}
+        >
           <IoCartOutline className="w-6 h-6" />
+
           <span className="font-medium">Add to Cart</span>
         </button>
       </div>

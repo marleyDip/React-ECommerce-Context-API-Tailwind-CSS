@@ -11,8 +11,11 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import { CgClose } from "react-icons/cg";
+import { useCart } from "../context/CartContext";
 
 const Navbar = ({ location, getLocation, openDropDown, setOpenDropDown }) => {
+  const { cartItem } = useCart();
+
   const toggleDropDown = () => {
     setOpenDropDown(!openDropDown);
   };
@@ -126,7 +129,7 @@ const Navbar = ({ location, getLocation, openDropDown, setOpenDropDown }) => {
           <Link to={"/cart"} className="relative group">
             <IoCartOutline className="w-7 h-7" />
             <span className="absolute -top-3 -right-3 px-2 rounded-full bg-red-500 text-white transform group-hover:-translate-y-1 transition-transform duration-200 ease-in-out ">
-              0
+              {cartItem.length}
             </span>
           </Link>
 
