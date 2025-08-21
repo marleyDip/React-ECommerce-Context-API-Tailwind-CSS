@@ -38,9 +38,16 @@ const FilterSection = ({
                 checked={category === item}
                 value={item}
                 onChange={handleCategoryChange}
+                className="cursor-pointer"
               />
 
-              <button className="cursor-pointer uppercase">{item}</button>
+              <button
+                className="cursor-pointer uppercase"
+                value={item}
+                onClick={handleCategoryChange}
+              >
+                {item}
+              </button>
             </div>
           );
         })}
