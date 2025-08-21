@@ -2,14 +2,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import SingleProduct from "./pages/SingleProduct";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
+
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Footer from "./components/Footer";
 
 const App = () => {
   const [location, setLocation] = useState();
@@ -53,6 +55,8 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
 
         <Route path="/products" element={<Products />}></Route>
+
+        <Route path="/products/:id" element={<SingleProduct />}></Route>
 
         <Route path="/about" element={<About />}></Route>
 

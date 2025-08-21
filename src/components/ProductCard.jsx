@@ -1,12 +1,18 @@
 import { IoCartOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   //console.log(product);
 
+  const navigate = useNavigate();
+
   return (
     <div className="group h-max bg-gray-100 rounded-2xl shadow-md hover:shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 ease-in-out">
       {/* image & category */}
-      <div className="relative overflow-hidden">
+      <div
+        className="relative overflow-hidden cursor-pointer"
+        onClick={() => navigate(`/products/${product.id}`)}
+      >
         <img
           src={product.image}
           alt={product.title}
