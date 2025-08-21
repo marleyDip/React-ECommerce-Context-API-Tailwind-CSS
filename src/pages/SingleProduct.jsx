@@ -10,7 +10,7 @@ const SingleProduct = () => {
   const [singleProduct, setSingleProduct] = useState("");
 
   const params = useParams();
-  console.log(params);
+  //console.log(params);
 
   const getSingleProduct = async () => {
     try {
