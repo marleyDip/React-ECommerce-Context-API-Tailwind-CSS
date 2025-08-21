@@ -17,7 +17,7 @@ const App = () => {
   const [location, setLocation] = useState();
   const [openDropDown, setOpenDropDown] = useState(false);
 
-  const geolocation = async () => {
+  /* const geolocation = async () => {
     navigator.geolocation.getCurrentPosition(async (pos) => {
       const { latitude, longitude } = pos.coords;
       //console.log(latitude, longitude);
@@ -31,10 +31,36 @@ const App = () => {
         const exactLocation = location.data.address;
         setLocation(exactLocation);
         setOpenDropDown(false);
-        //console.log(exactLocation);
+        console.log(exactLocation);
       } catch (error) {
         console.log(error);
       }
+    });
+  }; */
+
+  const geolocation = () => {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        async (pos) => {
+          try {
+            const { latitude, longitude } = pos.coords;
+            const url = `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`;
+
+            const { data } = await axios.get(url);
+            const exactLocation = data.address;
+
+            setLocation(exactLocation);
+            setOpenDropDown(false);
+            //console.log(exactLocation);
+
+            resolve(exactLocation);
+          } catch (err) {
+            console.error(err);
+            reject(err);
+          }
+        },
+        (err) => reject(err) // handle geolocation error (user deny, etc.)
+      );
     });
   };
 
