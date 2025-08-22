@@ -1,13 +1,15 @@
+import { IoCartOutline } from "react-icons/io5";
 import loading from "../assets/Loading4.webm";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BreadCrums from "../components/BreadCrums";
-import { IoCartOutline } from "react-icons/io5";
+import { useCart } from "../context/CartContext";
 
 const SingleProduct = () => {
   const [singleProduct, setSingleProduct] = useState("");
+  const { addToCart } = useCart();
 
   const params = useParams();
   //console.log(params);
@@ -94,7 +96,10 @@ const SingleProduct = () => {
 
               {/* btn */}
               <div className="group flex gap-4 mt-4">
-                <button className="px-6 py-2 flex gap-2 text-lg text-white bg-gradient-to-t from-lime-600 via-cyan-600 to-indigo-600 hover:bg-gradient-to-r hover:from-lime-700 hover:via-cyan-700 hover:to-indigo-700 rounded-md shadow-md hover:shadow-lg">
+                <button
+                  className="px-6 py-2 flex gap-2 text-lg text-white bg-gradient-to-t from-lime-600 via-cyan-600 to-indigo-600 hover:bg-gradient-to-r hover:from-lime-700 hover:via-cyan-700 hover:to-indigo-700 rounded-md shadow-md hover:shadow-lg"
+                  onClick={() => addToCart(singleProduct)}
+                >
                   <IoCartOutline className="w-6 h-6 transform group-hover:rotate-[360deg] transition-transform duration-200 ease-in-out" />
 
                   <span className="group-hover:translate-x-0.5">

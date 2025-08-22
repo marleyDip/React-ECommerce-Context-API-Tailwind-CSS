@@ -1,3 +1,5 @@
+import { taost } from "react-toastify";
+
 import { createContext, useContext, useState } from "react";
 
 export const CartContext = createContext(null);
@@ -14,9 +16,11 @@ export const CartProvider = ({ children }) => {
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
       setCartItem(updateCart);
+      taost.warning("Product Cart Increased!");
     } else {
       // add new item with quantity  1
       setCartItem([...cartItem, { ...product, quantity: 1 }]);
+      taost.success("Product is Added to Cart!");
     }
     //setCartItem([...cartItem, product]);
   };
@@ -29,8 +33,12 @@ export const CartProvider = ({ children }) => {
             let newUnit = item.quantity;
             if (action === "increase") {
               newUnit = newUnit + 1;
+
+              taost.success("Product Cart Increased!");
             } else if (action === "decrease") {
               newUnit = newUnit - 1;
+
+              taost.success("Product Cart Decreased!");
             }
             return newUnit > 0 ? { ...item, quantity: newUnit } : null;
           }
@@ -69,6 +77,8 @@ export const CartProvider = ({ children }) => {
 
   const deleteItem = (productId) => {
     setCartItem(cartItem.filter((item) => item.id !== productId));
+
+    taost.error("Product is Deleted from Cart!");
   };
 
   return (
