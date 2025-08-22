@@ -5,6 +5,7 @@ import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
   //console.log(product);
+  //console.log(product.image);
 
   const navigate = useNavigate();
 

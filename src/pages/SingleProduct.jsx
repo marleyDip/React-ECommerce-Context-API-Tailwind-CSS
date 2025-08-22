@@ -23,7 +23,7 @@ const SingleProduct = () => {
 
       const product = res.data.product;
       setSingleProduct(product);
-      console.log(product);
+      //console.log(product);
     } catch (error) {
       console.log(error);
     }
