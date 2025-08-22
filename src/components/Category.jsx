@@ -1,12 +1,14 @@
 //import { useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { GetData } from "../context/DataContext";
 
 const Category = () => {
-  const { categoryOnlyData } = GetData();
+  const { data } = GetData();
+
+  const navigate = useNavigate();
 
   //const { data, fetchAllProducts, categoryOnlyData } = GetData();
-  /* 
+
   const getUniqueCategory = (data, property) => {
     let newVal = data?.map((element) => {
       return element[property];
@@ -15,7 +17,7 @@ const Category = () => {
     return newVal;
   };
 
-  const categoryOnlyData = getUniqueCategory(data, "category"); */
+  const categoryOnlyData = getUniqueCategory(data, "category");
 
   //console.log(categoryOnlyData);
 
@@ -29,7 +31,10 @@ const Category = () => {
         {categoryOnlyData.map((item, index) => {
           return (
             <div key={index}>
-              <button className="uppercase bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 text-white px-3 py-1 rounded-md shadow-md hover:rounded-lg hover:shadow-lg transform hover:translate-x-1 hover:-translate-y-0.5 hover:scale-102 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
+              <button
+                className="uppercase bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 text-white px-3 py-1 rounded-md shadow-md hover:rounded-lg hover:shadow-lg transform hover:translate-x-1 hover:-translate-y-0.5 hover:scale-102 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer"
+                onClick={() => navigate(`/category/${item}`)}
+              >
                 {item}
               </button>
             </div>
