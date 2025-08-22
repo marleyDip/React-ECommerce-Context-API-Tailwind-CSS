@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import banner from "../assets/banner1.jpg";
 
 const MidBanner = () => {
@@ -22,9 +23,11 @@ const MidBanner = () => {
               shipping on all orders.
             </p>
 
-            <button className="bg-gradient-to-br  from-rose-600 via-pink-500 to-orange-600 hover:from-rose-700 hover:via-pink-600 hover:to-orange-700  text-white font-semibold px-4 py-2 md:px-6 md:py-3 rounded-lg shadow-lg hover:rounded-xl hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out cursor-pointer">
-              Shop Now
-            </button>
+            <Link to={"/products"}>
+              <button className="bg-gradient-to-br from-rose-600 via-pink-500 to-orange-600 hover:from-rose-700 hover:via-pink-600 hover:to-orange-700  text-white font-semibold px-4 py-2 md:px-6 md:py-3 rounded-lg shadow-lg hover:rounded-xl hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out cursor-pointer">
+                Shop Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>
