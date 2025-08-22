@@ -1,5 +1,4 @@
-import { taost } from "react-toastify";
-
+import { toast } from "react-toastify";
 import { createContext, useContext, useState } from "react";
 
 export const CartContext = createContext(null);
@@ -16,11 +15,11 @@ export const CartProvider = ({ children }) => {
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
       setCartItem(updateCart);
-      taost.warning("Product Cart Increased!");
+      toast.info("Product Cart Already Added!");
     } else {
       // add new item with quantity  1
       setCartItem([...cartItem, { ...product, quantity: 1 }]);
-      taost.success("Product is Added to Cart!");
+      toast.success("Product is Added to Cart!");
     }
     //setCartItem([...cartItem, product]);
   };
@@ -34,11 +33,11 @@ export const CartProvider = ({ children }) => {
             if (action === "increase") {
               newUnit = newUnit + 1;
 
-              taost.success("Product Cart Increased!");
+              toast.success("Product Cart Increased!");
             } else if (action === "decrease") {
               newUnit = newUnit - 1;
 
-              taost.success("Product Cart Decreased!");
+              toast.error("Product Cart Decreased!");
             }
             return newUnit > 0 ? { ...item, quantity: newUnit } : null;
           }
@@ -49,36 +48,36 @@ export const CartProvider = ({ children }) => {
   };
 
   //better approach for update quantity => don't pass cartItem as a parameter, use the state  directly
-  const updateQty = (productId, action) => {
-    setCartItem(
-      (prevCart) =>
-        prevCart
-          .map((item) => {
-            if (item.id === productId) {
-              let newUnit = item.quantity;
+  // const updateQty = (productId, action) => {
+  //   setCartItem(
+  //     (prevCart) =>
+  //       prevCart
+  //         .map((item) => {
+  //           if (item.id === productId) {
+  //             let newUnit = item.quantity;
 
-              if (action === "increase") newUnit++;
-              if (action === "decrease") newUnit--;
+  //             if (action === "increase") newUnit++;
+  //             if (action === "decrease") newUnit--;
 
-              // Readability - simplified using math.max for safety
+  //             // Readability - simplified using math.max for safety
 
-              const newUnitSafety =
-                action === "increase"
-                  ? item.quantity + 1
-                  : Math.max(item.quantity - 1, 0);
+  //             const newUnitSafety =
+  //               action === "increase"
+  //                 ? item.quantity + 1
+  //                 : Math.max(item.quantity - 1, 0);
 
-              return newUnit > 0 ? { ...item, quantity: newUnit } : null;
-            }
-            return item;
-          })
-          .filter(Boolean) // shorthand for remove null
-    );
-  };
+  //             return newUnit > 0 ? { ...item, quantity: newUnit } : null;
+  //           }
+  //           return item;
+  //         })
+  //         .filter(Boolean) // shorthand for remove null
+  //   );
+  // };
 
   const deleteItem = (productId) => {
     setCartItem(cartItem.filter((item) => item.id !== productId));
 
-    taost.error("Product is Deleted from Cart!");
+    toast.error("Product is Deleted from Cart!");
   };
 
   return (

@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import { FaCaretDown } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
+import { CgClose } from "react-icons/cg";
 
 import { Link, NavLink } from "react-router-dom";
 
@@ -10,7 +11,6 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
-import { CgClose } from "react-icons/cg";
 import { useCart } from "../context/CartContext";
 
 const Navbar = ({ location, getLocation, openDropDown, setOpenDropDown }) => {

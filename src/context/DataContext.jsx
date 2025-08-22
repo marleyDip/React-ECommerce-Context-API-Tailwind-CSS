@@ -18,6 +18,7 @@ export const DataProvider = ({ children }) => {
 
       const productsData = res.data.products;
       setData(productsData);
+      //console.log(productsData);
     } catch (error) {
       console.log(error);
     }
