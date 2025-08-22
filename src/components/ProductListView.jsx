@@ -7,21 +7,21 @@ const ProductListView = ({ product }) => {
 
   return (
     <div className="space-y-4 mt-2.5 rounded-2xl shadow-md">
-      <div className="bg-gray-100 p-2.5 gap-7 flex items-center rounded-md shadow-md">
+      <div className="bg-gray-100 p-2.5 gap-3.5 sm:gap-7 flex items-center rounded-md shadow-md">
         <img
           src={product.image}
           alt={product.title}
-          className="w-60 h-60 rounded-md shadow-md hover:rounded-lg hover:shadow-lg hover:scale-102 cursor-pointer"
+          className="h-36 w-24 sm:h-52 sm:w-52 md:w-60 md:h-60 rounded-md shadow-md hover:rounded-lg hover:shadow-lg hover:scale-102 cursor-pointer"
           onClick={() => navigate(`/products/${product.id}`)}
         />
 
-        <div className="group space-y-2">
-          <h1 className="text-xl font-bold line-clamp-2 group-hover:text-red-400 w-full">
+        <div className="group space-y-1 sm:space-y-2 md:space-y-4">
+          <h1 className="text-base sm:text-lg md:text-xl font-medium sm:font-bold line-clamp-1 sm:line-clamp-2 group-hover:text-red-400 w-[220px] md:w-full">
             {product.title}
           </h1>
 
-          <p className="font-semibold flex items-center text-lg">
-            <span className="text-2xl group-hover:text-emerald-700">
+          <p className="font-medium  sm:font-semibold flex items-center text-sm sm:text-lg">
+            <span className="text-base sm:text-xl md:text-2xl group-hover:text-emerald-700">
               BDT {product.price}
             </span>
 
@@ -30,7 +30,7 @@ const ProductListView = ({ product }) => {
             </span>
           </p>
 
-          <p className="font-medium text-lg">
+          <p className="font-medium text-sm sm:text-lg">
             Free Delivery -{" "}
             <span className="font-semibold group-hover:text-red-700">
               {new Date(Date.now() + 86400000).toLocaleDateString("en-US", {

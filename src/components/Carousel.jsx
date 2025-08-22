@@ -88,13 +88,13 @@ const Carousel = () => {
               key={index}
               className="bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] -z-10"
             >
-              <div className="flex items-center justify-center h-[600px] px-4 gap-10">
-                <div className="space-y-6">
+              <div className="flex flex-col md:flex-row items-center justify-center h-[600px] px-4 gap-10 my-24 sm:my-28 md:my-0">
+                <div className="space-y-3 md:space-y-6">
                   <h3 className="text-red-500 font-semibold font-sans text-sm">
                     Powering your world with the best in Electronics
                   </h3>
 
-                  <h1 className="text-4xl font-bold uppercase line-clamp-3 text-white md:w-[500px]">
+                  <h1 className="text-xl md:text-4xl font-bold uppercase line-clamp-2 md:line-clamp-3 text-white md:w-[500px]">
                     {item.title}
                   </h1>
 
@@ -111,7 +111,7 @@ const Carousel = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-[500px] rounded-full shadow-2xl shadow-red-400 transform hover:scale-105 active:95 hover:-translate-y-4 hover:translate-x-4 hover:rotate-[360deg] transition-all duration-300 ease-in-out"
+                    className="w-[500px] rounded-full shadow-2xl shadow-red-400 transform hover:scale-102 sm:hover:scale-105 active:95 hover:-translate-y-4 hover:translate-x-2 sm:hover:-translate-y-2 sm:hover:translate-x-4 hover:rotate-[360deg] transition-all duration-300 ease-in-out"
                   />
                 </div>
               </div>
