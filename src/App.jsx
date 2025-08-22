@@ -17,7 +17,7 @@ const App = () => {
   const [location, setLocation] = useState();
   const [openDropDown, setOpenDropDown] = useState(false);
 
-  /* const geolocation = async () => {
+  /* const getLocation = async () => {
     navigator.geolocation.getCurrentPosition(async (pos) => {
       const { latitude, longitude } = pos.coords;
       //console.log(latitude, longitude);
@@ -38,7 +38,7 @@ const App = () => {
     });
   }; */
 
-  const geolocation = () => {
+  const getLocation = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         async (pos) => {
@@ -65,14 +65,14 @@ const App = () => {
   };
 
   useEffect(() => {
-    geolocation();
+    getLocation();
   }, []);
 
   return (
     <BrowserRouter>
       <Navbar
         location={location}
-        getLocation={geolocation}
+        getLocation={getLocation}
         openDropDown={openDropDown}
         setOpenDropDown={setOpenDropDown}
       />
@@ -88,7 +88,10 @@ const App = () => {
 
         <Route path="/contact" element={<Contact />}></Route>
 
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route
+          path="/cart"
+          element={<Cart location={location} getLocation={getLocation} />}
+        ></Route>
       </Routes>
 
       <Footer />
