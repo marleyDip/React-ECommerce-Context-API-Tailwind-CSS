@@ -40,9 +40,40 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  //better approach for update quantity => don't pass cartItem as a parameter, use the state  directly
+  const updateQty = (productId, action) => {
+    setCartItem(
+      (prevCart) =>
+        prevCart
+          .map((item) => {
+            if (item.id === productId) {
+              let newUnit = item.quantity;
+
+              if (action === "increase") newUnit++;
+              if (action === "decrease") newUnit--;
+
+              // Readability - simplified using math.max for safety
+
+              const newUnitSafety =
+                action === "increase"
+                  ? item.quantity + 1
+                  : Math.max(item.quantity - 1, 0);
+
+              return newUnit > 0 ? { ...item, quantity: newUnit } : null;
+            }
+            return item;
+          })
+          .filter(Boolean) // shorthand for remove null
+    );
+  };
+
+  const deleteItem = (productId) => {
+    setCartItem(cartItem.filter((item) => item.id !== productId));
+  };
+
   return (
     <CartContext.Provider
-      value={{ cartItem, setCartItem, addToCart, updateQuantity }}
+      value={{ cartItem, setCartItem, addToCart, updateQuantity, deleteItem }}
     >
       {children}
     </CartContext.Provider>
