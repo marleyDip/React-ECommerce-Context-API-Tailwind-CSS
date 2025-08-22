@@ -7,7 +7,7 @@ const ProductListView = ({ product }) => {
 
   return (
     <div className="space-y-4 mt-2.5 rounded-2xl shadow-md">
-      <div className="group bg-gray-100 p-2.5 gap-7 flex items-center rounded-md shadow-md">
+      <div className="bg-gray-100 p-2.5 gap-7 flex items-center rounded-md shadow-md">
         <img
           src={product.image}
           alt={product.title}
@@ -15,7 +15,7 @@ const ProductListView = ({ product }) => {
           onClick={() => navigate(`/products/${product.id}`)}
         />
 
-        <div className="space-y-2">
+        <div className="group space-y-2">
           <h1 className="text-xl font-bold line-clamp-2 group-hover:text-red-400 w-full">
             {product.title}
           </h1>
