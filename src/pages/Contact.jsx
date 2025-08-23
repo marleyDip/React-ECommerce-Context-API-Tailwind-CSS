@@ -108,7 +108,7 @@ const Contact = () => {
               type="submit"
               className="group flex items-center justify-center gap-2 w-full bg-gradient-to-r from-red-500 to-purple-500 hover:bg-gradient-to-l text-white py-2 font-semibold rounded-xl hover:opacity-90 transition-all duration-300"
             >
-              Send Message{" "}
+              Send Message
               <span className="transform group-hover:rotate-[360deg] transition-transform duration-300 ease-in-out">
                 <LuMessageCircleCode size={20} />
               </span>
