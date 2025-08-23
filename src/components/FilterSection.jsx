@@ -17,18 +17,21 @@ const FilterSection = ({
   const { categoryOnlyData, brandOnlyData } = GetData();
 
   return (
-    <div className="bg-gray-100 mt-10 p-4 rounded-md h-max">
+    <div className="bg-gray-100 mt-10 p-4 rounded-md h-max md:block hidden">
+      {/* search */}
       <input
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search..."
-        className="bg-white p-2 rounded-md shadow-md border-2 border-gray-400"
+        className="bg-white p-2 rounded-md shadow-md border-2 border-gray-400 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none focus:ring-offset-0"
       />
+      {/* search */}
 
       {/* category only data */}
       <h1 className="mt-5 font-semibold text-xl">Category</h1>
-      <div className="flex flex-col gap-2 mt-3">
+
+      <div className="flex flex-col gap-2 mt-3 font-medium">
         {categoryOnlyData?.map((item, index) => {
           return (
             <div key={index} className="flex gap-2">
@@ -77,7 +80,7 @@ const FilterSection = ({
       {/* price range */}
       <h1 className="mt-5 font-semibold text-xl mb-3">Price Range</h1>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 font-medium">
         <label htmlFor="">
           Price Range: BDT {priceRange[0]} - BDT {priceRange[1]}
         </label>
@@ -111,7 +114,9 @@ const FilterSection = ({
           }
         /> */}
       </div>
+      {/* price range */}
 
+      {/* reset btn */}
       <button
         className="bg-gradient-to-t from-indigo-500 to-teal-500 hover:bg-gradient-to-r hover:from-teal-500 hover:to-indigo-500 bg-gra text-white rounded-md shadow-md hover:shadow-lg hover:rounded-lg transform hover:translate-x-1 hover:-translate-y-0.5 px-3 py-1.5 mt-5 cursor-pointer transition-all duration-200 ease-in-out"
         onClick={() => {
@@ -123,7 +128,7 @@ const FilterSection = ({
       >
         Reset Filters
       </button>
-      {/* price range */}
+      {/* reset btn */}
     </div>
   );
 };
