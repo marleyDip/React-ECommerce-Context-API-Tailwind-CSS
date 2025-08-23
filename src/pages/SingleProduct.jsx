@@ -43,20 +43,20 @@ const SingleProduct = () => {
         <div className="px-4 pb-4 md:px-0">
           <BreadCrums title={singleProduct.title} />
 
-          <div className="max-w-6xl mx-auto md:p-6 grid grid-cols-2 gap-10">
+          <div className="max-w-6xl mx-auto p-3 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* image */}
             <div className="w-full">
               <img
                 src={singleProduct.image}
                 alt={singleProduct.title}
-                className="rounded-2xl w-full object-cover"
+                className="rounded-2xl w-full"
               />
             </div>
             {/* image */}
 
             {/* details */}
-            <div className="flex flex-col gap-6">
-              <h1 className="md:text-3xl  font-bold text-gray-800">
+            <div className="flex flex-col gap-3 lg:gap-6">
+              <h1 className="md:text-3xl text-xl font-bold text-gray-800">
                 {singleProduct.title}
               </h1>
 
@@ -80,7 +80,7 @@ const SingleProduct = () => {
               </p>
 
               {/* quantity */}
-              <div className="flex  items-center gap-4">
+              <div className="flex items-center gap-4">
                 <label htmlFor="" className="text-lg font-medium text-gray-700">
                   Quantity:
                 </label>
@@ -95,7 +95,7 @@ const SingleProduct = () => {
               {/* quantity */}
 
               {/* btn */}
-              <div className="group flex gap-4 mt-4">
+              <div className="group flex gap-4 mt-2 lg:mt-4">
                 <button
                   className="px-6 py-2 flex gap-2 text-lg text-white bg-gradient-to-t from-lime-600 via-cyan-600 to-indigo-600 hover:bg-gradient-to-r hover:from-lime-700 hover:via-cyan-700 hover:to-indigo-700 rounded-md shadow-md hover:shadow-lg"
                   onClick={() => addToCart(singleProduct)}
