@@ -26,7 +26,7 @@ const Cart = ({ location, getLocation }) => {
   const totalItem = cartItem.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <div className="mt-10 max-w-6xl mx-auto mb-5">
+    <div className="mt-10 max-w-6xl mx-auto mb-5 px-4 md:px-0">
       {cartItem.length > 0 ? (
         <div>
           <h1 className="font-bold text-2xl">My Cart({cartItem.length})</h1>
@@ -37,7 +37,7 @@ const Cart = ({ location, getLocation }) => {
               return (
                 <div
                   key={index}
-                  className="w-full bg-gray-100 p-5 rounded-md shadow-md mt-3 flex items-center justify-between"
+                  className="max-w-6xl md:w-full bg-gray-100 p-3 md:p-5 rounded-md shadow-md mt-0 md:mt-3 flex items-center justify-between"
                 >
                   {/* img & info */}
                   <div className="flex items-center gap-4">
@@ -48,49 +48,102 @@ const Cart = ({ location, getLocation }) => {
                     />
 
                     <div>
-                      <h1 className="w-[300px] line-clamp-2">{item.title}</h1>
+                      <h1 className="line-clamp-1 md:w-[300px] md:line-clamp-2">
+                        {item.title}
+                      </h1>
 
-                      <p className="text-red-500 font-semibold text-lg">
-                        BDT {item.price - item.discount}
-                      </p>
+                      <div className="flex items-center justify-start gap-5">
+                        <p className="text-red-500 font-semibold text-base md:text-lg">
+                          BDT {item.price - item.discount}
+                        </p>
+
+                        <p className="text-blue-500 font-semibold text-base md:hidden">
+                          BDT {(item.price - item.discount) * item.quantity}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center justify-start gap-4">
+                        {/* increase & decrease btn */}
+                        <div className="md:hidden">
+                          <div className="bg-red-500 text-white flex gap-2 px-2 py-1 rounded-full shadow-md hover:shadow-xl font-semibold text-base">
+                            <button
+                              className="cursor-pointer"
+                              onClick={() =>
+                                updateQuantity(cartItem, item.id, "decrease")
+                              }
+                            >
+                              -
+                            </button>
+
+                            <span>{item.quantity}</span>
+
+                            <button
+                              className="cursor-pointer"
+                              onClick={() =>
+                                updateQuantity(cartItem, item.id, "increase")
+                              }
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
+                        {/* increase & decrease btn */}
+
+                        {/* delete btn */}
+                        <div className="md:hidden flex">
+                          <span
+                            className="p-2 rounded-full hover:shadow-2xl hover:bg-white/60 transition-all"
+                            onClick={() => deleteItem(item.id)}
+                          >
+                            <FaRegTrashAlt className="text-red-500 text-xl cursor-pointer" />
+                          </span>
+                        </div>
+                        {/* delete btn */}
+                      </div>
                     </div>
                   </div>
                   {/* img & info */}
 
-                  {/* btn */}
-                  <div className="bg-red-500 text-white flex gap-4 px-4 py-2 rounded-full shadow-md hover:shadow-xl font-bold text-xl">
-                    <button
-                      className="cursor-pointer"
-                      onClick={() =>
-                        updateQuantity(cartItem, item.id, "decrease")
-                      }
-                    >
-                      -
-                    </button>
+                  {/* increase & decrease btn */}
+                  <div className="hidden md:block">
+                    <div className="bg-red-500 text-white flex gap-4 px-4 py-2 rounded-full shadow-md hover:shadow-xl font-bold text-xl">
+                      <button
+                        className="cursor-pointer"
+                        onClick={() =>
+                          updateQuantity(cartItem, item.id, "decrease")
+                        }
+                      >
+                        -
+                      </button>
 
-                    <span>{item.quantity}</span>
+                      <span>{item.quantity}</span>
 
-                    <button
-                      className="cursor-pointer"
-                      onClick={() =>
-                        updateQuantity(cartItem, item.id, "increase")
-                      }
-                    >
-                      +
-                    </button>
+                      <button
+                        className="cursor-pointer"
+                        onClick={() =>
+                          updateQuantity(cartItem, item.id, "increase")
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
+                  {/* increase & decrease btn */}
 
-                  <p className="text-blue-500 font-semibold text-lg">
+                  <p className="text-blue-500 font-semibold text-lg md:block hidden">
                     BDT {(item.price - item.discount) * item.quantity}
                   </p>
 
-                  <span
-                    className="p-3 rounded-full hover:shadow-2xl hover:bg-white/60 transition-all"
-                    onClick={() => deleteItem(item.id)}
-                  >
-                    <FaRegTrashAlt className="text-red-500 text-2xl cursor-pointer" />
-                  </span>
-                  {/* btn */}
+                  {/* delete btn */}
+                  <div className="md:block hidden">
+                    <span
+                      className="p-3 rounded-full hover:shadow-2xl hover:bg-white/60 transition-all"
+                      onClick={() => deleteItem(item.id)}
+                    >
+                      <FaRegTrashAlt className="text-red-500 text-2xl cursor-pointer" />
+                    </span>
+                  </div>
+                  {/* delete btn */}
                 </div>
               );
             })}
@@ -98,7 +151,7 @@ const Cart = ({ location, getLocation }) => {
           {/* product info */}
 
           {/* delivery info */}
-          <div className="grid grid-cols-2 gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20">
             {/* address */}
             <div className="bg-gray-100 p-7 mt-4 space-y-2 rounded-md">
               <h1 className="text-gray-800 font-bold text-xl">Delivery Info</h1>
