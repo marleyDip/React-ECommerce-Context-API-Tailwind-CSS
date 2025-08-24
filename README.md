@@ -1,6 +1,6 @@
 # 🛒 Modern E-Commerce Website - React, Tailwind CSS & Context API
 
-## A fully functional e-commerce application built with React.js, Tailwind CSS, and Context API for smooth state management.
+## A fully functional e-commerce application built with React.js, Tailwind CSS, React-Router, and Context API for smooth state management.
 
 ### It features secure user authentication with Clerk, a modern UI, and essential e-commerce functionality, including cart management, product pages, local storage support, and Protected Route. 🚀
 
