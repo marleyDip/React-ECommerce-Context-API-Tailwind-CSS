@@ -82,6 +82,7 @@ const Carousel = () => {
   };
 
   return (
+    //<div className="pt-16">
     <div>
       <Slider {...settings}>
         {data?.slice(0, 7)?.map((item, index) => {
@@ -104,7 +105,10 @@ const Carousel = () => {
                     {item.description}
                   </p>
 
-                  <button className="bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 text-white px-3 py-1.5 mt-2 rounded-md shadow-md hover:rounded-lg hover:shadow-lg  cursor-pointer" onClick={()=> navigate(`/products/${item.id}`)}>
+                  <button
+                    className="bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 text-white px-3 py-1.5 mt-2 rounded-md shadow-md hover:rounded-lg hover:shadow-lg  cursor-pointer"
+                    onClick={() => navigate(`/products/${item.id}`)}
+                  >
                     Shop Now
                   </button>
                 </div>
