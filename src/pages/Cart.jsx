@@ -161,7 +161,7 @@ const Cart = ({ location, getLocation }) => {
 
                 <input
                   type="text"
-                  value={user.fullName}
+                  value={user?.fullName}
                   placeholder="Enter Your Name"
                   className="p-2 rounded-md"
                 />
@@ -172,7 +172,7 @@ const Cart = ({ location, getLocation }) => {
 
                 <input
                   type="text"
-                  value={`${location.city}, ${location.state_district}`}
+                  value={`${location?.city}, ${location?.state_district}`}
                   placeholder="Enter Your Address"
                   className="p-2 rounded-md"
                 />
@@ -184,7 +184,7 @@ const Cart = ({ location, getLocation }) => {
 
                   <input
                     type="text"
-                    value={location.state}
+                    value={location?.state}
                     placeholder="Enter Your State"
                     className="p-2 rounded-md w-full"
                   />
@@ -195,7 +195,7 @@ const Cart = ({ location, getLocation }) => {
 
                   <input
                     type="Number"
-                    value={location.postcode}
+                    value={location?.postcode}
                     placeholder="Enter Your PostCode"
                     className="p-2 rounded-md w-full"
                   />
@@ -208,7 +208,7 @@ const Cart = ({ location, getLocation }) => {
 
                   <input
                     type="text"
-                    value={location.country}
+                    value={location?.country}
                     /* value={[location.state, location.country]
                       .filter(Boolean)
                       .join(", ")} */

@@ -13,12 +13,15 @@ import Footer from "./components/Footer";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useCart } from "./context/CartContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   const [location, setLocation] = useState();
   const [openDropDown, setOpenDropDown] = useState(false);
+  const { cartItem, setCartItem } = useCart();
 
-  /* const getLocation = async () => {
+  const getLocation = async () => {
     navigator.geolocation.getCurrentPosition(async (pos) => {
       const { latitude, longitude } = pos.coords;
       //console.log(latitude, longitude);
@@ -32,14 +35,14 @@ const App = () => {
         const exactLocation = location.data.address;
         setLocation(exactLocation);
         setOpenDropDown(false);
-        console.log(exactLocation);
+        //console.log(exactLocation);
       } catch (error) {
         console.log(error);
       }
     });
-  }; */
+  };
 
-  const getLocation = () => {
+  /* const getLocation = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         async (pos) => {
@@ -63,11 +66,44 @@ const App = () => {
         (err) => reject(err) // handle geolocation error (user deny, etc.)
       );
     });
-  };
+  }; */
+
+  /* //Load cart from local storage on initial render
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cartItems");
+    if (storedCart && storedCart !== "undefined") {
+      try {
+        setCartItem(JSON.parse(storedCart));
+      } catch (error) {
+        console.error("Error parsing cartItem from localStorage:", error);
+        setCartItem([]); // reset if corrupted
+      }
+    }
+  }, []);
+
+  // Save cart to local storage whenever it changes
+  useEffect(() => {
+    if (cartItem !== undefined) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItem));
+    }
+  }, [cartItem]); */
 
   useEffect(() => {
     getLocation();
   }, []);
+
+  //Load cart from local storage on initial render
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cartItem");
+    if (storedCart) {
+      setCartItem(JSON.parse(storedCart));
+    }
+  }, []);
+
+  //save cart to local storage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+  }, [cartItem]);
 
   return (
     <BrowserRouter>
@@ -93,7 +129,11 @@ const App = () => {
 
         <Route
           path="/cart"
-          element={<Cart location={location} getLocation={getLocation} />}
+          element={
+            <ProtectedRoute>
+              <Cart location={location} getLocation={getLocation} />
+            </ProtectedRoute>
+          }
         ></Route>
       </Routes>
 
