@@ -34,7 +34,9 @@
 
 ### Project Overview
 
-<img width="1920" height="2502" alt="screencapture-sofian-e-commerce-react-context-api-netlify-app-2025-08-24-09_55_25" src="https://github.com/user-attachments/assets/3a963a54-bc76-4e4c-a4cf-dc6025623e34" />
+<img width="1920" height="2502" alt="screencapture-sofian-e-commerce-react-context-api-netlify-app-2025-08-24-09_55_25" src="https://github.com/user-attachments/assets/3a963a54-bc76-4e4c-a4cf-dc6025623e34" /> 
+
+<br/>
 
 <img width="1920" height="2012" alt="screencapture-sofian-e-commerce-react-context-api-netlify-app-products-2025-08-24-09_56_26" src="https://github.com/user-attachments/assets/8d8c86b8-472b-408b-83f9-0bf006b2b433" />
 
